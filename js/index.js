@@ -66,12 +66,20 @@ function fetchVideos( term, pageToken )
 function watchForm()
 {
     let submitBtn = document.querySelector( '.submitButton' );
+    let searchForm = document.querySelector( '.searchForm');
 
     submitBtn.addEventListener( 'click', (event) => {
         event.preventDefault();
         let searchTerm = document.querySelector( '#searchTerm' ).value;
 
         fetchVideos( searchTerm, null);
+    });
+  
+    searchForm.addEventListener( 'submit', (event) => {
+      event.preventDefault();
+      let searchTerm = document.querySelector( '#searchTerm' ).value;
+
+      fetchVideos( searchTerm, null);
     });
 }
 
